@@ -1,0 +1,140 @@
+
+modules:
+  nose:
+    ignore-unknown-actions: true
+
+execution:
+- executor: selenium
+  scenario: Stress & Functionality Test-Selenium
+  blazegrid: true
+  
+  capabilities: 
+    browserName: chrome
+  hold-for: 20m
+
+- executor: jmeter
+  scenario: Stress & Functionality Test-Http
+  concurrency: 20
+  ramp-up: 1m
+  hold-for: 19m
+
+scenarios:
+  Stress & Functionality Test-Selenium:
+    generate-flow-markers: true 
+    headless: false
+    timeout: 60s
+    think-time: 0s
+    requests:
+    - label: Test
+      actions:
+      - resizeWindow(1850,944)
+      - go(http://172.30.31.148/index.html)
+      - clickByLinkText(SuperSport XL)
+      - clickByID(buttonCart)
+      - clickByID(numItemsInCart)
+      - clickByXPath(//input[@value='1'])
+      - clickByXPath(//input[@value='1'])
+      - doubleClickByXPath(//input[@value='1'])
+      - typeByXPath(//input[@value='1']): "3"
+      - clickByLinkText(Update basket)
+      - clickByID(orderButton)
+
+  Stress & Functionality Test-Http:
+    headers:
+      User-Agent: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/93.0.4577.82 Safari/537.36'
+    requests:
+      - transaction: Test
+        force-parent-sample: false
+        do:
+          - url: 'http://172.30.31.148/cart'
+            method: POST
+            label: 'http://172.30.31.148/cart'
+            headers:
+              Accept: '*/*'
+              X-Requested-With: XMLHttpRequest
+              Content-Type: application/json; charset=UTF-8
+            body: '{"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d"}'
+          - url: 'http://172.30.31.148/detail.html'
+            method: GET
+            label: 'http://172.30.31.148/detail.html'
+            think-time: 94ms
+            headers:
+              Upgrade-Insecure-Requests: '1'
+              Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+            body:
+              id: 510a0d7e-8e83-4193-b483-e27e09ddc34d
+          - url: 'http://172.30.31.148/catalogue'
+            method: GET
+            label: 'http://172.30.31.148/catalogue'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+            body:
+              sort: id
+              size: '3'
+              tags: sport
+          - url: 'http://172.30.31.148/cart/update'
+            method: POST
+            label: 'http://172.30.31.148/cart/update'
+            headers:
+              Accept: '*/*'
+              X-Requested-With: XMLHttpRequest
+              Content-Type: application/json; charset=UTF-8
+            body: '{"id":"510a0d7e-8e83-4193-b483-e27e09ddc34d","quantity":"3"}'
+          - url: 'http://172.30.31.148/basket.html'
+            method: GET
+            label: 'http://172.30.31.148/basket.html'
+            think-time: 119ms
+            headers:
+              Upgrade-Insecure-Requests: '1'
+              Accept: 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9'
+          - url: 'http://172.30.31.148/topbar.html'
+            method: GET
+            label: 'http://172.30.31.148/topbar.html'
+            headers:
+              Accept: 'text/html, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/navbar.html'
+            method: GET
+            label: 'http://172.30.31.148/navbar.html'
+            headers:
+              Accept: 'text/html, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/footer.html'
+            method: GET
+            label: 'http://172.30.31.148/footer.html'
+            headers:
+              Accept: 'text/html, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/card'
+            method: GET
+            label: 'http://172.30.31.148/card'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/address'
+            method: GET
+            label: 'http://172.30.31.148/address'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/catalogue'
+            method: GET
+            label: 'http://172.30.31.148/catalogue'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+            body:
+              size: '3'
+          - url: 'http://172.30.31.148/cart'
+            method: GET
+            label: 'http://172.30.31.148/cart'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
+          - url: 'http://172.30.31.148/catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d'
+            method: GET
+            label: 'http://172.30.31.148/catalogue/510a0d7e-8e83-4193-b483-e27e09ddc34d'
+            headers:
+              Accept: 'application/json, text/javascript, */*; q=0.01'
+              X-Requested-With: XMLHttpRequest
