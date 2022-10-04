@@ -1,0 +1,96 @@
+
+-----File-----
+
+These entries have been added to weaveworksdemos/queue-master:0.3.1:
+FILE                            SIZE
+/bin                            787.1K
+/bin/ash                        12B
+/bin/base64                     12B
+/bin/bbconfig                   12B
+/bin/busybox                    786.2K
+/bin/cat                        12B
+/bin/catv                       12B
+/bin/chgrp                      12B
+/bin/chmod                      12B
+/bin/chown                      12B
+/bin/conspy                     12B
+/bin/cp                         12B
+/bin/cpio                       12B
+/bin/date                       12B
+/bin/dd                         12B
+/bin/df                         12B
+/bin/dmesg                      12B
+/bin/dnsdomainname              12B
+/bin/dumpkmap                   12B
+/bin/echo                       12B
+/bin/ed                         12B
+/bin/egrep                      12B
+/bin/false                      12B
+/bin/fatattr                    12B
+/bin/fdflush                    12B
+/bin/fgrep                      12B
+/bin/fsync                      12B
+/bin/getopt                     12B
+/bin/grep                       12B
+/bin/gunzip                     12B
+/bin/gzip                       12B
+/bin/hostname                   12B
+/bin/ionice                     12B
+/bin/iostat                     12B
+/bin/ipcalc                     12B
+/bin/kbd_mode                   12B
+/bin/kill                       12B
+/bin/ln                         12B
+/bin/login                      12B
+/bin/ls                         12B
+/bin/lzop                       12B
+/bin/makemime                   12B
+/bin/mkdir                      12B
+/bin/mknod                      12B
+/bin/mktemp                     12B
+/bin/more                       12B
+/bin/mount                      12B
+/bin/mountpoint                 12B
+/bin/mpstat                     12B
+/bin/mv                         12B
+/bin/netstat                    12B
+/bin/nice                       12B
+/bin/pidof                      12B
+/bin/ping                       12B
+/bin/ping6                      12B
+/bin/pipe_progress              12B
+/bin/printenv                   12B
+/bin/ps                         12B
+/bin/pwd                        12B
+/bin/reformime                  12B
+/bin/rev                        12B
+/bin/rm                         12B
+/bin/rmdir                      12B
+/bin/run-parts                  12B
+/bin/sed                        12B
+/bin/setserial                  12B
+/bin/sh                         12B
+/bin/sleep                      12B
+/bin/stat                       12B
+/bin/stty                       12B
+/bin/su                         12B
+/bin/sync                       12B
+/bin/tar                        12B
+/bin/touch                      12B
+/bin/true                       12B
+/bin/umount                     12B
+/bin/uname                      12B
+/bin/usleep                     12B
+/bin/watch                      12B
+/bin/zcat                       12B
+/lib                            292.5K
+/lib/ld-musl-x86_64.so.1        292.5K
+
+These entries have been deleted from weaveworksdemos/queue-master:0.3.1:
+FILE                        SIZE
+/usr                        13.3M
+/usr/src                    13.3M
+/usr/src/app                13.3M
+/usr/src/app/app.jar        13.3M
+
+These entries have been changed between weaveworksdemos/queue-master:0.3.1 and killertiger1991/queue-master:slim: None
